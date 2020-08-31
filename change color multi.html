@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Colorful Phytoliths</title>
+    <script>
+        var element;
+        var filelist=[1,2,3,4,5,6];
+        var filenames=[];
+        for(i=0;i<filelist.length;i++){
+            filenames[i]=filelist[i]+'.jpg'
+        }
+        document.addEventListener('click', changeImage);
+
+        function changeImage(e) {
+            
+            element = e.target || e.srcElement;
+            console.log("element clicked: "+element);
+            var currentpic;
+            for(i=0;i<filelist.length;i++){
+                if(element.id.includes(i)){
+                    currentpic=i;
+                    console.log("currentpic: "+ currentpic);
+                }
+            }
+            if (element.alt == 'grey') {
+                element.src = filenames[currentpic+1];
+                element.alt = "color";
+                
+            } else if (element.alt == 'color'){
+                element.src = filenames[currentpic];
+                element.alt = "grey";
+            }
+        };
+    </script>
+</head>
+<body>
+    <h2>Welcome to the page of colorful phytoliths!<h2>
+    <img src="1.jpg"
+		alt="grey" id="pic0" class="landscape"		
+		width="640px" height="480px"
+		style="cursor:pointer">
+    <p>↑ click picture to see color</p>
+    <img src="3.jpg"
+        alt="grey" id="pic2" class="landscape"        
+        width="640px" height="480px"
+        style="cursor:pointer">
+    <p>↑ click picture to see color</p>
+    <img src="5.jpg"
+        alt="grey" id="pic4" class="landscape"      
+        width="640px" height="480px"
+        style="cursor:pointer">
+    <p>↑ click picture to see color</p>
+</body>
+</html>
